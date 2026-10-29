@@ -1,0 +1,18 @@
+# ESP-IDF component + host tests.
+set(QS_SRCS src/qs_panel.cpp src/qs_canvas.cpp src/qs_font5x7.cpp src/qs_widgets.cpp)
+
+if(ESP_PLATFORM)
+    idf_component_register(SRCS ${QS_SRCS} INCLUDE_DIRS src)
+else()
+    cmake_minimum_required(VERSION 3.10)
+    project(QuasarUI CXX)
+    set(CMAKE_CXX_STANDARD 11)
+    add_library(quasarui STATIC ${QS_SRCS})
+    target_include_directories(quasarui PUBLIC src)
+    enable_testing()
+    add_executable(quasarui_tests test/test_main.cpp)
+    target_link_libraries(quasarui_tests quasarui)
+    add_test(NAME unit COMMAND quasarui_tests)
+    add_executable(render_gallery test/render_gallery.cpp)
+    target_link_libraries(render_gallery quasarui)
+endif()

@@ -1,0 +1,11 @@
+{
+  "name": "QuasarUI",
+  "version": "0.1.0",
+  "description": "Dirty-rectangle SPI TFT UI toolkit for ST7789 / ILI9341: framebuffer, gauges, graphs, widgets.",
+  "keywords": "display, tft, spi, st7789, ili9341, gui, esp32",
+  "authors": [{"name": "Quasar Soft"}],
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/SemyonZamiakin/QuasarUI.git"},
+  "frameworks": ["arduino", "espidf"],
+  "platforms": "*"
+}
